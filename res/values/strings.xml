@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Calculator</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_aboutus">About Us</string>
+    <string name="menu_sharefb">Share this App in FB</string>
+    <string name="menu_exit">Exit</string>
+    <string name="menu_rateApp">Rate your App</string>
+    <string name="toBMI">BMI Calculator</string>
+    <string name="currencySubmit">Submit</string>
+    <string name="title_activity_bmi">BMIActivity</string>
+    <string name="MaleBMI">Male</string>
+    <string name="FemaleBMI">Female</string>
+    <string name="BMIGenderTitle">Select Gender</string>
+    <string name="blankDesc" />
+    <string name="BMISubmit">Calculate</string>
+    <string name="BMIHeightTitle">Enter Height</string>
+
+    <string-array name="BMIHeightUnits">
+        <item> centimeters </item>
+        <item> feet </item>
+    </string-array>
+    <string-array name="BMIWeightUnits">
+        <item>pounds</item>
+        <item>Kgs</item>
+    </string-array>
+
+    <string name="BMIWeightTitle">Enter Weight</string>
+    <string name="InchesHint">inches</string>
+    <string name="Inches">(inches)</string>
+    <string name="HeightHint">Height</string>
+    <string name="WeightHint">Weight</string>
+    <string name="title_activity_bmiresult">BMIResult</string>
+    <string name="BMIResultTitle">Your BMI is : </string>
+    <string name="title_activity_splash_logo">SplashLogoActivity</string>
+    <string name="sphinx">Sphinx</string>
+    <string name="corp">Corporation</string>
+    <string name="sphinxTagLine">Where innovation is inevitable</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_about_us">AboutUs</string>
+    <string name="Name1">name1</string>
+    <string name="name2">Name 2</string>
+    <string name="Back">Back</string>
+    <string name="applications">Applications</string>
+
+</resources>
