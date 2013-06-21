@@ -6,6 +6,18 @@
     android:background="@drawable/background"
     tools:context=".BMIActivity" >
 
+
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/scrollView">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    xmlns:tools="http://schemas.android.com/tools"
+                    android:id="@+id/BeforeScrollLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
     <RelativeLayout
         android:id="@+id/GenderLayout"
         android:layout_width="300dp"
@@ -183,7 +195,7 @@
 
     <Button
         android:id="@+id/BMISubmit"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_alignRight="@+id/WeightLayout"
         android:layout_below="@+id/WeightLayout"
@@ -192,5 +204,9 @@
         android:padding="11dp"
         android:textSize="16sp"
         android:text="@string/BMISubmit" />
+
+    </RelativeLayout>
+
+    </ScrollView>
 
 </RelativeLayout>
