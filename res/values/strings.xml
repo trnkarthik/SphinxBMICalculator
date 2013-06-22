@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Calculator</string>
     <string name="hello_world">Hello world!</string>
     <string name="menu_aboutus">About Us</string>
     <string name="menu_sharefb">Share this App in FB</string>
@@ -43,5 +42,7 @@
     <string name="name2">Name 2</string>
     <string name="Back">Back</string>
     <string name="applications">Applications</string>
+    <string name="knowMoreAboutBMI"><u>Click here to know more about BMI</u>.</string>
+    <string name="app_name">Calculator</string><string name="tempString">Temp String</string>
 
 </resources>

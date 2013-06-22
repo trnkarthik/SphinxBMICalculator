@@ -1,0 +1,56 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:id="@+id/AboutBMIMainLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/background"
+                tools:context=".BMIActivity">
+
+
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/AboutBMIscrollView"
+            android:layout_marginTop="15dp">
+
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                        xmlns:tools="http://schemas.android.com/tools"
+                        android:id="@+id/AboutBMIBeforeScrollLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+            <RelativeLayout
+                    android:id="@+id/AboutBMILayout"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="10dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/rounded_corners_white">
+
+                <TextView
+                        android:id="@+id/AboutBMITextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/tempString"
+                        android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+
+            </RelativeLayout>
+
+
+
+
+
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+
+</RelativeLayout>

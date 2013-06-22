@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="aboutBMISource">
+        <![CDATA[
+        <b><font color="maroon">About BMI</font></b><br />
+            The <b>Body Mass Index (BMI)</b>, or Quetelet index, is a measure for human body shape based on an individual\'s weight and height.<br /><br />
+        <b><font color="maroon">BMI Scale</font></b><br />
+        \t &#8226;Normal BMI 18.5 – 24.9 <br />
+        \t &#8226; Underweight BMI < 18.5 <br />
+        \t &#8226; Overweight BMI 25 – 29.9 <br />
+        \t &#8226; Obesity BMI 30 – 39.9 <br />
+        \t &#8226; Extreme Obesity BMI > 40 <br /><br />
+        <b><font color="maroon">Facts About BMI</font></b><br />
+        \t &#8226; For older adults the BMI normal range is 18-25. The higher the BMI number above the normal range (18-25), the greater the
+        degree of overweight. Generally speaking an adult BMI of 27 is considered overweight and 30 or above is severely overweight.<br />
+        \t &#8226; People with a higher percentage of body fat tend to have a higher BMI except for body builders. <br />
+        \t &#8226; Carrying excess body fat, not muscle, puts you at greater risk for health problems such as heart disease, cancer, diabetes and stroke.<br /><br />
+
+        <b><font color="maroon">Exceptions to BMI</font></b><br />
+        \t &#8226; Competitive athletes and body builders, whose BMI is high
+        due to a relatively larger amount of muscle, and women who are pregnant or lactating should not be disturbed if their BMI is not within the normal range.<br />
+        \t &#8226; The BMI for children and teens is calculated the same way. But you must put the BMI on a growth chart to find out what it means. A BMI greater than the 85th
+        percentile for age is considered “at risk for overweight.” A BMI greater than the 95th percentile is considered “overweight.” A BMI less than the 5th percentile is
+        considered “at risk for underweight.”<br /><br />
+        <b><font color="maroon">Importance of BMI</font></b><br /> If your BMI is high, you may have an increased risk of developing certain diseases including:
+        \t &#8226; high blood pressure<br />   \t &#8226; heart disease<br />   \t &#8226; high cholesterol and blood lipids (LDL)<br />   \t &#8226; Type 2 Diabetes<br />   \t &#8226; sleep apnea<br />   \t &#8226; osteoarthritis<br />
+        \t &#8226; female infertility<br />   \t &#8226; gastroesophageal reflux (GERD)<br />   \t &#8226; urinary stress incontinence<br /> <br />
+
+        ]]>
+    </string>
+
+</resources>

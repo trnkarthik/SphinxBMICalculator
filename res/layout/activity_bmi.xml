@@ -1,212 +1,223 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/MainLayout"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/background"
-    tools:context=".BMIActivity" >
+                xmlns:tools="http://schemas.android.com/tools"
+                android:id="@+id/MainLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/background"
+                tools:context=".BMIActivity">
 
 
     <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/scrollView">
+            android:id="@+id/scrollView"
+            android:layout_marginTop="15dp">
 
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                    xmlns:tools="http://schemas.android.com/tools"
-                    android:id="@+id/BeforeScrollLayout"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                        xmlns:tools="http://schemas.android.com/tools"
+                        android:id="@+id/BeforeScrollLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
 
-    <RelativeLayout
-        android:id="@+id/GenderLayout"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-		android:paddingBottom="10dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="15dp"
-        android:background="@drawable/rounded_corners_white" >
+            <RelativeLayout
+                    android:id="@+id/GenderLayout"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="10dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/rounded_corners_white">
 
-        <TextView
-            android:id="@+id/GenderTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:text="@string/BMIGenderTitle"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
+                <TextView
+                        android:id="@+id/GenderTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/BMIGenderTitle"
+                        android:textAppearance="?android:attr/textAppearanceMedium"/>
 
-        <ImageView
-            android:id="@+id/maleIcon"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_alignRight="@+id/GenderTextView"
-            android:layout_below="@+id/GenderTextView"
-            android:layout_marginRight="20dp"
-            android:layout_marginTop="10dp"
-            android:contentDescription="@string/blankDesc"
-            android:src="@drawable/male_off" />
+                <ImageView
+                        android:id="@+id/maleIcon"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_alignRight="@+id/GenderTextView"
+                        android:layout_below="@+id/GenderTextView"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginTop="10dp"
+                        android:contentDescription="@string/blankDesc"
+                        android:src="@drawable/male_off"/>
 
-        <ImageView
-            android:id="@+id/femaleIcon"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_alignTop="@+id/maleIcon"
-            android:layout_toRightOf="@+id/maleIcon"
-            android:contentDescription="@string/blankDesc"
-            android:src="@drawable/female_off" />
-    </RelativeLayout>
+                <ImageView
+                        android:id="@+id/femaleIcon"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_alignTop="@+id/maleIcon"
+                        android:layout_toRightOf="@+id/maleIcon"
+                        android:contentDescription="@string/blankDesc"
+                        android:src="@drawable/female_off"/>
+            </RelativeLayout>
 
-    <RelativeLayout
-        android:id="@+id/HeightLayout"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-		android:paddingBottom="10dp"
-        android:layout_alignLeft="@+id/GenderLayout"
-        android:layout_alignRight="@+id/GenderLayout"
-        android:layout_below="@+id/GenderLayout"
-        android:layout_marginTop="15dp"
-        android:background="@drawable/rounded_corners_white" >
+            <RelativeLayout
+                    android:id="@+id/HeightLayout"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="10dp"
+                    android:layout_alignLeft="@+id/GenderLayout"
+                    android:layout_alignRight="@+id/GenderLayout"
+                    android:layout_below="@+id/GenderLayout"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/rounded_corners_white">
 
-        <TextView
-            android:id="@+id/BMIHeightTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:text="@string/BMIHeightTitle"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
+                <TextView
+                        android:id="@+id/BMIHeightTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/BMIHeightTitle"
+                        android:textAppearance="?android:attr/textAppearanceMedium"/>
 
-        <EditText
-            android:id="@+id/BMIHeightEditText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/BMIHeightTitle"
-            android:layout_below="@+id/BMIHeightTitle"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:hint="@string/HeightHint"
-            android:ems="6"
-            android:inputType="numberDecimal" 
-          >
+                <EditText
+                        android:id="@+id/BMIHeightEditText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/BMIHeightTitle"
+                        android:layout_below="@+id/BMIHeightTitle"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:hint="@string/HeightHint"
+                        android:ems="6"
+                        android:inputType="numberDecimal"
+                        >
 
-            <requestFocus />
-        </EditText>
+                    <requestFocus/>
+                </EditText>
 
-        <Spinner
-            android:id="@+id/BMIHeightUnitsSpinner"
-            android:layout_width="120dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/BMIHeightTitle"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="9dp"
-            android:layout_toRightOf="@+id/BMIHeightEditText"
-            android:entries="@array/BMIHeightUnits"
-            android:gravity="center" />
-        
-        <RelativeLayout
-            android:id="@+id/DropDownHeightInchesLayout"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/BMIHeightEditText"
-             >
+                <Spinner
+                        android:id="@+id/BMIHeightUnitsSpinner"
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/BMIHeightTitle"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="9dp"
+                        android:layout_toRightOf="@+id/BMIHeightEditText"
+                        android:entries="@array/BMIHeightUnits"
+                        android:gravity="center"/>
 
-        <EditText
-            android:id="@+id/BMIHeightInchesEditText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:ems="6"
-            android:hint="@string/InchesHint"
-            android:inputType="numberDecimal" />
+                <RelativeLayout
+                        android:id="@+id/DropDownHeightInchesLayout"
+                        android:layout_width="300dp"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/BMIHeightEditText"
+                        >
 
-        <TextView
-            android:id="@+id/InchesTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_toRightOf="@+id/BMIHeightInchesEditText"
-            android:text="@string/Inches"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
-        
-    </RelativeLayout>
-        
-        
-        
-        
-        
-        
+                    <EditText
+                            android:id="@+id/BMIHeightInchesEditText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:ems="6"
+                            android:hint="@string/InchesHint"
+                            android:inputType="numberDecimal"/>
 
-    </RelativeLayout>
+                    <TextView
+                            android:id="@+id/InchesTextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_toRightOf="@+id/BMIHeightInchesEditText"
+                            android:text="@string/Inches"
+                            android:textAppearance="?android:attr/textAppearanceMedium"/>
 
-    <RelativeLayout
-        android:id="@+id/WeightLayout"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:paddingBottom="10dp"
-        android:layout_alignLeft="@+id/HeightLayout"
-        android:layout_alignRight="@+id/HeightLayout"
-        android:layout_below="@+id/HeightLayout"
-        android:layout_marginTop="15dp"
-        android:background="@drawable/rounded_corners_white" >
+                </RelativeLayout>
 
-        <TextView
-            android:id="@+id/BMIWeightTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:text="@string/BMIWeightTitle"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
 
-        <EditText
-            android:id="@+id/BMIWeightEditText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/BMIWeightTitle"
-            android:layout_below="@+id/BMIWeightTitle"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:hint="@string/WeightHint"
-            android:ems="6"
-            android:inputType="numberDecimal" >
+            </RelativeLayout>
 
-            <requestFocus />
-        </EditText>
+            <RelativeLayout
+                    android:id="@+id/WeightLayout"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="10dp"
+                    android:layout_alignLeft="@+id/HeightLayout"
+                    android:layout_alignRight="@+id/HeightLayout"
+                    android:layout_below="@+id/HeightLayout"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/rounded_corners_white">
 
-        <Spinner
-            android:id="@+id/BMIWeightUnitsSpinner"
-            android:layout_width="120dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/BMIWeightTitle"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="9dp"
-            android:layout_toRightOf="@+id/BMIWeightEditText"
-            android:entries="@array/BMIWeightUnits" />
-    </RelativeLayout>
+                <TextView
+                        android:id="@+id/BMIWeightTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/BMIWeightTitle"
+                        android:textAppearance="?android:attr/textAppearanceMedium"/>
 
-    <Button
-        android:id="@+id/BMISubmit"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/WeightLayout"
-        android:layout_below="@+id/WeightLayout"
-        android:layout_marginTop="15dp"
-        android:background="@drawable/custom_button"
-        android:padding="11dp"
-        android:textSize="16sp"
-        android:text="@string/BMISubmit" />
+                <EditText
+                        android:id="@+id/BMIWeightEditText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/BMIWeightTitle"
+                        android:layout_below="@+id/BMIWeightTitle"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:hint="@string/WeightHint"
+                        android:ems="6"
+                        android:inputType="numberDecimal">
 
-    </RelativeLayout>
+                    <requestFocus/>
+                </EditText>
+
+                <Spinner
+                        android:id="@+id/BMIWeightUnitsSpinner"
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/BMIWeightTitle"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="9dp"
+                        android:layout_toRightOf="@+id/BMIWeightEditText"
+                        android:entries="@array/BMIWeightUnits"/>
+            </RelativeLayout>
+
+            <Button
+                    android:id="@+id/BMISubmit"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignRight="@+id/WeightLayout"
+                    android:layout_below="@+id/WeightLayout"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/custom_button"
+                    android:textSize="16sp"
+                    android:text="@string/BMISubmit"
+                    android:textStyle="bold"
+                    android:clickable="false"
+                    android:longClickable="false"
+                    />
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="@string/knowMoreAboutBMI"
+                    android:id="@+id/knowMore"
+                    android:layout_below="@+id/BMISubmit"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="20dp"
+                    android:textColor="#f6f6f6"/>
+
+        </RelativeLayout>
 
     </ScrollView>
+
 
 </RelativeLayout>

@@ -280,6 +280,29 @@ public class BMIActivity extends Activity {
 
 			} // onclick ends here
 		}); // Anonymous class ends here
+
+
+        //click here for more about BKI link
+
+        TextView knowMore = (TextView)findViewById(R.id.knowMore);
+        knowMore.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+               // Toast.makeText(getApplicationContext(),"Why do you need to know more supid!",Toast.LENGTH_LONG).show();
+                Intent toAboutBMI = new Intent(BMIActivity.this,AboutBMI.class);
+                startActivity(toAboutBMI);
+            }
+        });
+
+
+
+
+
+
+
+
+
+
 	}
 
 	protected void checkon() {
