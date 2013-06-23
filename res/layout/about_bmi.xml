@@ -41,16 +41,23 @@
                         android:textAppearance="?android:attr/textAppearanceMedium"/>
 
 
+
             </RelativeLayout>
 
-
-
-
-
+            <Button
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Back"
+                    android:id="@+id/button"
+                    android:layout_marginTop="50dp"
+                    android:background="@drawable/custom_button"
+                    android:layout_alignTop="@+id/AboutBMILayout"
+                    android:layout_centerHorizontal="true"/>
 
         </RelativeLayout>
 
     </ScrollView>
+
 
 
 </RelativeLayout>
