@@ -114,8 +114,7 @@
                         android:id="@+id/DropDownHeightInchesLayout"
                         android:layout_width="300dp"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/BMIHeightEditText"
-                        >
+                        android:layout_below="@+id/BMIHeightEditText">
 
                     <EditText
                             android:id="@+id/BMIHeightInchesEditText"
@@ -142,13 +141,66 @@
             </RelativeLayout>
 
             <RelativeLayout
-                    android:id="@+id/WeightLayout"
+                    android:id="@+id/AgeLayout"
                     android:layout_width="300dp"
                     android:layout_height="wrap_content"
                     android:paddingBottom="10dp"
                     android:layout_alignLeft="@+id/HeightLayout"
                     android:layout_alignRight="@+id/HeightLayout"
                     android:layout_below="@+id/HeightLayout"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/rounded_corners_white">
+
+                <TextView
+                        android:id="@+id/AgeLayoutTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/selectAge"
+                        android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="@string/blankDesc"
+                        android:id="@+id/ageValue"
+                        android:layout_centerHorizontal="true"
+                        android:layout_alignParentLeft="false"
+                        android:layout_alignParentRight="false"
+                        android:layout_alignParentBottom="false"
+                        android:layout_alignParentTop="false"
+                        android:layout_alignBaseline="@+id/AgeLayoutTitle"
+                        android:layout_toRightOf="@+id/AgeLayoutTitle"
+                        android:layout_marginLeft="20dp"
+                        android:textColor="#8e4713"/>
+
+                <SeekBar
+                        android:layout_width="250dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/AgeSeekBar"
+                        android:indeterminate="false"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignTop="@+id/AgeLayoutTitle"
+                        android:layout_alignLeft="@+id/AgeLayoutTitle"
+                        android:layout_marginLeft="25dp"
+                        android:layout_marginTop="25dp"/>
+
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                    android:id="@+id/WeightLayout"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="10dp"
+                    android:layout_alignLeft="@+id/AgeLayout"
+                    android:layout_alignRight="@+id/AgeLayout"
+                    android:layout_below="@+id/AgeLayout"
                     android:layout_marginTop="15dp"
                     android:background="@drawable/rounded_corners_white">
 

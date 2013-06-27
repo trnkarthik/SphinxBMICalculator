@@ -20,6 +20,7 @@ import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -170,7 +171,35 @@ public class BMIActivity extends Activity {
 
 		});
 
-		// calculate button
+        //age selection
+
+        SeekBar AgeValue = (SeekBar) findViewById(R.id.AgeSeekBar);
+
+        AgeValue.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            int progressChanged = 0;
+
+            TextView ageValue = (TextView)findViewById(R.id.ageValue);
+
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser){
+                progressChanged = progress;
+                ageValue.setText(progressChanged + "");
+            }
+
+            public void onStartTrackingTouch(SeekBar seekBar) {
+                // TODO Auto-generated method stub
+            }
+
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                Toast.makeText(BMIActivity.this,"seek bar progress:"+progressChanged,
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+
+
+
+        // calculate button
 		Button bt = (Button) this.findViewById(R.id.BMISubmit);
 		bt.setOnClickListener(new View.OnClickListener() {
 			@Override
@@ -263,13 +292,13 @@ public class BMIActivity extends Activity {
 					Dialog dialog = new Dialog(BMIActivity.this);
 					dialog.setContentView(R.layout.bmi_result_custom_dialog);
 					dialog.setCanceledOnTouchOutside(true);
-					dialog.setTitle("This is your result");
+					dialog.setTitle("Your BMI");
 
 					View BMIResultLayout = dialog
 							.findViewById(R.id.BMIResultLayout);
 					TextView BMIResultTV = (TextView) BMIResultLayout
 							.findViewById(R.id.BMIResultTextView);
-					BMIResultTV.setText("Your BMI : " + BMIIndex);
+					BMIResultTV.setText(" " + BMIIndex);
 					BMIResultTV.setTextColor(Color.BLACK);
 
 					dialog.show();
@@ -293,14 +322,6 @@ public class BMIActivity extends Activity {
                 startActivity(toAboutBMI);
             }
         });
-
-
-
-
-
-
-
-
 
 
 	}
@@ -388,11 +409,6 @@ public class BMIActivity extends Activity {
 		}
 	}
 
-	
-	
-	
-	
-	
 	private void initShareIntent(String type) {
 	    boolean found = false;
 	    Intent share = new Intent(android.content.Intent.ACTION_SEND);

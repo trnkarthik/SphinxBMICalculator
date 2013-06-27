@@ -43,6 +43,6 @@
     <string name="Back">Back</string>
     <string name="applications">Applications</string>
     <string name="knowMoreAboutBMI"><u>Click here to know more about BMI</u>.</string>
-    <string name="app_name">Calculator</string><string name="tempString">Temp String</string>
+    <string name="app_name">Calculator</string><string name="tempString">Temp String</string><string name="selectAge">Select Age</string>
 
 </resources>
