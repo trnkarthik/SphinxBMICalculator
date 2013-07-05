@@ -132,7 +132,7 @@ public class BMIActivity extends Activity {
 				.findViewById(R.id.BMIHeightInchesEditText);
 
 		// dropdown/dropUp animation object for height layout.
-		dropDown = new DropDownAnim(DropDownheightInchesLayout, 80, true);
+		dropDown = new DropDownAnim(DropDownheightInchesLayout, 100, true);
 		dropUp = new DropDownAnim(DropDownheightInchesLayout, 0, true);
 
 		// getting spinner

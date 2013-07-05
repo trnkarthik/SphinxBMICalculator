@@ -108,13 +108,15 @@
                         android:layout_marginTop="9dp"
                         android:layout_toRightOf="@+id/BMIHeightEditText"
                         android:entries="@array/BMIHeightUnits"
-                        android:gravity="center"/>
+                        android:gravity="center"
+                        />
 
                 <RelativeLayout
                         android:id="@+id/DropDownHeightInchesLayout"
                         android:layout_width="300dp"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/BMIHeightEditText">
+                        android:layout_below="@+id/BMIHeightEditText"
+                        >
 
                     <EditText
                             android:id="@+id/BMIHeightInchesEditText"
@@ -123,17 +125,18 @@
                             android:layout_marginLeft="20dp"
                             android:ems="6"
                             android:hint="@string/InchesHint"
-                            android:inputType="numberDecimal"/>
+                            android:inputType="numberDecimal"
+                            />
 
                     <TextView
                             android:id="@+id/InchesTextView"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
-                            android:layout_marginTop="10dp"
                             android:layout_toRightOf="@+id/BMIHeightInchesEditText"
                             android:text="@string/Inches"
-                            android:textAppearance="?android:attr/textAppearanceMedium"/>
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:layout_marginTop="5dp"/>
 
                 </RelativeLayout>
 
