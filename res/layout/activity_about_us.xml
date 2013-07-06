@@ -1,9 +1,10 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="200dp"
     android:background="@drawable/background"
-    tools:context=".AboutUs" >
+    tools:context=".AboutUs"
+    android:gravity="center_horizontal">
 
     <TextView
         android:id="@+id/sphinxAboutUsTitle"
@@ -17,31 +18,12 @@
         android:textColor="#1f5268"
         android:textSize="50sp" />
 
-    <Button
-        android:id="@+id/btn_BackAboutUs"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="24dp"
-        android:background="@drawable/rounded_corners_white"
-        android:text="@string/Back" />
-
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView2"
-        android:layout_below="@+id/sphinxAboutUsTitle"
-        android:layout_marginTop="86dp"
-        android:text="@string/Name1" />
-
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/sphinxAboutUsTitle"
-        android:layout_centerVertical="true"
-        android:text="@string/name2" />
+        android:text="@string/name2"
+        android:layout_below="@+id/sphinxAboutUsTitle"
+        android:layout_centerHorizontal="true"/>
 
 </RelativeLayout>

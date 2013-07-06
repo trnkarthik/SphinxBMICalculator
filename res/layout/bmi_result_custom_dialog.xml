@@ -49,7 +49,9 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:layout_centerVertical="true"
                 android:layout_centerHorizontal="true"
-                android:textSize="22dp"/>
+                android:textSize="14dp"/>
+
+
 
     </RelativeLayout>
 

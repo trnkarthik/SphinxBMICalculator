@@ -3,7 +3,7 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="menu_aboutus">About Us</string>
-    <string name="menu_sharefb">Share this App in FB</string>
+    <string name="menu_sharefb">Share this App</string>
     <string name="menu_exit">Exit</string>
     <string name="menu_rateApp">Rate your App</string>
     <string name="toBMI">BMI Calculator</string>
@@ -43,6 +43,7 @@
     <string name="Back">Back</string>
     <string name="applications">Applications</string>
     <string name="knowMoreAboutBMI"><u>Click here to know more about BMI</u>.</string>
-    <string name="app_name">Calculator</string><string name="tempString">Temp String</string><string name="selectAge">Select Age</string>
+    <string name="app_name">Calculator</string><string name="tempString">Temp String</string>
+    <string name="selectAge">Select Age</string><string name="defaultAge">23</string>
 
 </resources>

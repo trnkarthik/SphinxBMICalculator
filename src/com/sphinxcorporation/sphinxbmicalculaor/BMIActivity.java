@@ -1,10 +1,12 @@
 package com.sphinxcorporation.sphinxbmicalculaor;
 
-import java.util.List;
-
+import android.app.ActionBar;
 import android.app.Activity;
 import android.app.Dialog;
+import android.content.ComponentName;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -24,6 +26,8 @@ import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.List;
 
 public class BMIActivity extends Activity {
 
@@ -66,7 +70,7 @@ public class BMIActivity extends Activity {
 					maleIcon.setImageDrawable(getResources().getDrawable(
 							R.drawable.male_off));
 					isMaleActive = false;
-					
+
 
 				} else if (isMaleActive == false) {
 					// check if female is active.If so deactivate it
@@ -164,8 +168,7 @@ public class BMIActivity extends Activity {
 
 			@Override
 			public void onNothingSelected(AdapterView<?> arg0) {
-				// Toast.makeText(getApplicationContext(), "hi 2",
-				// Toast.LENGTH_LONG).show();
+				// Toast.makeText(getApplicationContext(),"hi 2",Toast.LENGTH_LONG).show();
 
 			}
 
@@ -174,6 +177,8 @@ public class BMIActivity extends Activity {
         //age selection
 
         SeekBar AgeValue = (SeekBar) findViewById(R.id.AgeSeekBar);
+        AgeValue.setMax(80);
+        AgeValue.setProgress(23);
 
         AgeValue.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             int progressChanged = 0;
@@ -182,7 +187,7 @@ public class BMIActivity extends Activity {
 
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser){
                 progressChanged = progress;
-                ageValue.setText(progressChanged + "");
+                ageValue.setText(progressChanged + 20 + "");
             }
 
             public void onStartTrackingTouch(SeekBar seekBar) {
@@ -281,8 +286,7 @@ public class BMIActivity extends Activity {
 									+ heightInMts, Toast.LENGTH_LONG).show();
 
 					BMIIndex = ((WeightInKgs) / (heightInMts * heightInMts));
-					Toast.makeText(getApplicationContext(), BMIIndex + " ",
-							Toast.LENGTH_LONG).show();
+					Toast.makeText(getApplicationContext(), BMIIndex + " ",Toast.LENGTH_LONG).show();
 
 					if (isFemaleActive)
 						gender = 1;
@@ -301,14 +305,31 @@ public class BMIActivity extends Activity {
 					BMIResultTV.setText(" " + BMIIndex);
 					BMIResultTV.setTextColor(Color.BLACK);
 
-					dialog.show();
+                    String resultCategory = "";
+
+                    resultCategory = determineCategory(BMIIndex);
+
+                    Toast.makeText(getApplicationContext(), resultCategory +"",
+                            Toast.LENGTH_LONG).show();
+
+                    View BMIResultTextLayout = dialog
+                            .findViewById(R.id.BMIResultTextLayout);
+
+                    TextView BMIResultComment = (TextView) BMIResultTextLayout
+                            .findViewById(R.id.BMIResultComment);
+                    BMIResultComment.setText("Your BMI Suggests that you are "+ resultCategory);
+
+                    dialog.show();
 				} else {
 					Toast.makeText(getApplicationContext(), errorMsg,
 							Toast.LENGTH_LONG).show();
 				}
 
 			} // onclick ends here
-		}); // Anonymous class ends here
+
+
+        }); // Anonymous class ends here
+
 
 
         //click here for more about BKI link
@@ -326,7 +347,23 @@ public class BMIActivity extends Activity {
 
 	}
 
-	protected void checkon() {
+    public String determineCategory(Float BMI){
+
+        if(BMI< 18.5)
+            return("Underweight");
+        else if(BMI >= 18.5 && BMI <= 24.9)
+            return("Normal");
+        else if(BMI >= 25 && BMI <= 29.9)
+            return("OverWeight");
+        else if(BMI >= 30 && BMI <= 39.9)
+            return("Obesity");
+        else if(BMI >= 40 )
+            return("Extreme Obesity");
+        return("Normal");
+
+    }
+
+    protected void checkon() {
 		// if(isFemaleActive)
 		Toast.makeText(getApplicationContext(),
 				"female " + isFemaleActive + " male " + isMaleActive,
@@ -340,22 +377,25 @@ public class BMIActivity extends Activity {
 	public boolean onCreateOptionsMenu(Menu menu) {
 		MenuInflater menuInflater = getMenuInflater();
 		menuInflater.inflate(R.menu.activity_bmi, menu);
-		return true;
+        return true;
 	}
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 
 		switch (item.getItemId()) {
-		case R.id.menu_settings:
+		case R.id.menu_about_us:
+            createDialog();
+/*
 			Toast.makeText(this, "About Us", Toast.LENGTH_SHORT).show();
 			startActivity(new Intent(BMIActivity.this, AboutUs.class));
+*/
 			return true;
 
-		case R.id.menu_fbSahre:
-			Toast.makeText(this, "Share this App on FB", Toast.LENGTH_SHORT).show();
-			initShareIntent("face");
-			//initShareIntent("twi");
+		case R.id.menu_share:
+			initShareIntent();
+            // initShareIntent("twi");
+
 			return true;
 			
 
@@ -409,35 +449,59 @@ public class BMIActivity extends Activity {
 		}
 	}
 
-	private void initShareIntent(String type) {
-	    boolean found = false;
-	    Intent share = new Intent(android.content.Intent.ACTION_SEND);
-	    share.setType("image/jpeg");
-
-	    // gets the list of intents that can be loaded.
-	    List<ResolveInfo> resInfo = getPackageManager().queryIntentActivities(share, 0);
-	    if (!resInfo.isEmpty()){
-	        for (ResolveInfo info : resInfo) {
-	            if (info.activityInfo.packageName.toLowerCase().contains(type) || 
-	                    info.activityInfo.name.toLowerCase().contains(type) ) {
-	                share.putExtra(Intent.EXTRA_SUBJECT,  "Test 2.0");
-	                share.putExtra(Intent.EXTRA_TEXT,     "Facebook testing!");
-	               // share.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(new File(myPath)) ); // Optional, just if you wanna share an image.
-	                share.setPackage(info.activityInfo.packageName);
-	                found = true;
-	                break;
-	            }
-	        }
-	        if (!found)
-	            return;
-
-	        startActivity(Intent.createChooser(share, "Select"));
-	    }
+	public void initShareIntent() {
+        Intent sendIntent = new Intent();
+        sendIntent.setAction(Intent.ACTION_SEND);
+        sendIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Subject Here");
+        sendIntent.putExtra(android.content.Intent.EXTRA_TEXT, "Hi checkout this cool app");
+        sendIntent.setType("text/plain");
+        startActivity(sendIntent);
 	}
+
+    private void initShareIntent(String type) {
+        boolean found = false;
+        Intent share = new Intent(android.content.Intent.ACTION_SEND);
+        share.setType("image/jpeg");
+
+        // gets the list of intents that can be loaded.
+        List<ResolveInfo> resInfo = getPackageManager().queryIntentActivities(share, 0);
+        if (!resInfo.isEmpty()){
+            for (ResolveInfo info : resInfo) {
+                if (info.activityInfo.packageName.toLowerCase().contains(type) ||
+                        info.activityInfo.name.toLowerCase().contains(type) ) {
+                  //  share.putExtra(Intent.EXTRA_SUBJECT,  "subject");
+                    share.putExtra(Intent.EXTRA_TEXT,     "http://www.trnkarthik.com");
+                    //share.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(new File(myPath)) ); // Optional, just if you wanna share an image.
+                    share.setPackage(info.activityInfo.packageName);
+                    found = true;
+                    break;
+                }
+            }
+            if (!found)
+                return;
+
+            startActivity(Intent.createChooser(share, "Select"));
+        }
+    }
 	
-	
-	
-	
+	public void createDialog()
+    {
+        Dialog dialog = new Dialog(BMIActivity.this);
+        dialog.setContentView(R.layout.activity_about_us);
+        dialog.setCanceledOnTouchOutside(true);
+        dialog.setTitle("About US");
+
+/*
+        View BMIResultLayout = dialog
+                .findViewById(R.id.BMIResultLayout);
+        TextView BMIResultTV = (TextView) BMIResultLayout
+                .findViewById(R.id.BMIResultTextView);
+        BMIResultTV.setText(" " + BMIIndex);
+        BMIResultTV.setTextColor(Color.BLACK);
+*/
+
+        dialog.show();
+    }
 	
 	
 }

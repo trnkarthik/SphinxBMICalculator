@@ -1,25 +1,33 @@
-<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/menu_settings"
-        android:orderInCategory="100"
-        android:showAsAction="never"
-        android:title="@string/menu_aboutus"/>
+            android:id="@+id/menu_share"
+            android:orderInCategory="100"
+            android:showAsAction="always"
+            android:icon="@drawable/social_share"
+            android:title="@string/menu_sharefb"/>
      <item
         android:id="@+id/menu_rateApp"
         android:orderInCategory="100"
-        android:showAsAction="never"
+        android:showAsAction="always"
+        android:icon="@drawable/rating_important"
         android:title="@string/menu_rateApp"/>
-       <item
-        android:id="@+id/menu_fbSahre"
-        android:orderInCategory="100"
-        android:showAsAction="never"
-        android:title="@string/menu_sharefb"/>
+
+    <item
+            android:id="@+id/menu_about_us"
+            android:orderInCategory="100"
+            android:showAsAction="always"
+            android:icon="@drawable/action_about"
+            android:title="@string/menu_aboutus"/>
 
     <item
         android:id="@+id/menu_exit"
         android:orderInCategory="100"
-        android:showAsAction="never"
+        android:showAsAction="always"
+        android:icon="@drawable/exit_icon"
         android:title="@string/menu_exit"/>
 
 </menu>
+
+

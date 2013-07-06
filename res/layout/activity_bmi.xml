@@ -66,9 +66,9 @@
                     android:layout_width="300dp"
                     android:layout_height="wrap_content"
                     android:paddingBottom="10dp"
-                    android:layout_alignLeft="@+id/GenderLayout"
-                    android:layout_alignRight="@+id/GenderLayout"
-                    android:layout_below="@+id/GenderLayout"
+                    android:layout_alignLeft="@+id/AgeLayout"
+                    android:layout_alignRight="@+id/AgeLayout"
+                    android:layout_below="@+id/AgeLayout"
                     android:layout_marginTop="15dp"
                     android:background="@drawable/rounded_corners_white">
 
@@ -148,9 +148,9 @@
                     android:layout_width="300dp"
                     android:layout_height="wrap_content"
                     android:paddingBottom="10dp"
-                    android:layout_alignLeft="@+id/HeightLayout"
-                    android:layout_alignRight="@+id/HeightLayout"
-                    android:layout_below="@+id/HeightLayout"
+                    android:layout_alignLeft="@+id/GenderLayout"
+                    android:layout_alignRight="@+id/GenderLayout"
+                    android:layout_below="@+id/GenderLayout"
                     android:layout_marginTop="15dp"
                     android:background="@drawable/rounded_corners_white">
 
@@ -169,7 +169,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:text="@string/blankDesc"
+                        android:text="@string/defaultAge"
                         android:id="@+id/ageValue"
                         android:layout_centerHorizontal="true"
                         android:layout_alignParentLeft="false"
@@ -182,15 +182,14 @@
                         android:textColor="#8e4713"/>
 
                 <SeekBar
-                        android:layout_width="250dp"
+                        android:layout_width="290dp"
                         android:layout_height="wrap_content"
                         android:id="@+id/AgeSeekBar"
                         android:indeterminate="false"
                         android:layout_alignParentBottom="true"
                         android:layout_alignTop="@+id/AgeLayoutTitle"
                         android:layout_alignLeft="@+id/AgeLayoutTitle"
-                        android:layout_marginLeft="25dp"
-                        android:layout_marginTop="25dp"/>
+                        android:layout_marginTop="30dp"/>
 
 
 
@@ -201,9 +200,9 @@
                     android:layout_width="300dp"
                     android:layout_height="wrap_content"
                     android:paddingBottom="10dp"
-                    android:layout_alignLeft="@+id/AgeLayout"
-                    android:layout_alignRight="@+id/AgeLayout"
-                    android:layout_below="@+id/AgeLayout"
+                    android:layout_alignLeft="@+id/HeightLayout"
+                    android:layout_alignRight="@+id/HeightLayout"
+                    android:layout_below="@+id/HeightLayout"
                     android:layout_marginTop="15dp"
                     android:background="@drawable/rounded_corners_white">
 
@@ -268,7 +267,8 @@
                     android:layout_below="@+id/BMISubmit"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="20dp"
-                    android:textColor="#f6f6f6"/>
+                    android:textColor="#f6f6f6"
+                    android:layout_marginBottom="50dp"/>
 
         </RelativeLayout>
 
