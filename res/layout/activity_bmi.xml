@@ -165,11 +165,13 @@
                         android:text="@string/selectAge"
                         android:textAppearance="?android:attr/textAppearanceMedium"/>
 
-                <TextView
-                        android:layout_width="wrap_content"
+                <EditText
+                        android:layout_width="55dp"
                         android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
                         android:text="@string/defaultAge"
+
+                        android:inputType="number"
+                        android:ems="10"
                         android:id="@+id/ageValue"
                         android:layout_centerHorizontal="true"
                         android:layout_alignParentLeft="false"
@@ -181,6 +183,7 @@
                         android:layout_marginLeft="20dp"
                         android:textColor="#8e4713"/>
 
+
                 <SeekBar
                         android:layout_width="290dp"
                         android:layout_height="wrap_content"
@@ -190,8 +193,6 @@
                         android:layout_alignTop="@+id/AgeLayoutTitle"
                         android:layout_alignLeft="@+id/AgeLayoutTitle"
                         android:layout_marginTop="30dp"/>
-
-
 
             </RelativeLayout>
 
@@ -228,8 +229,6 @@
                         android:hint="@string/WeightHint"
                         android:ems="6"
                         android:inputType="numberDecimal">
-
-                    <requestFocus/>
                 </EditText>
 
                 <Spinner

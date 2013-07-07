@@ -1,15 +1,13 @@
 package com.sphinxcorporation.sphinxbmicalculaor;
 
-import android.app.ActionBar;
 import android.app.Activity;
 import android.app.Dialog;
-import android.content.ComponentName;
 import android.content.Intent;
-import android.content.pm.ActivityInfo;
-import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -168,7 +166,6 @@ public class BMIActivity extends Activity {
 
 			@Override
 			public void onNothingSelected(AdapterView<?> arg0) {
-				// Toast.makeText(getApplicationContext(),"hi 2",Toast.LENGTH_LONG).show();
 
 			}
 
@@ -176,18 +173,16 @@ public class BMIActivity extends Activity {
 
         //age selection
 
-        SeekBar AgeValue = (SeekBar) findViewById(R.id.AgeSeekBar);
+        final SeekBar AgeValue = (SeekBar) findViewById(R.id.AgeSeekBar);
         AgeValue.setMax(80);
-        AgeValue.setProgress(23);
-
+        AgeValue.setProgress(5);
+        final EditText ageValueET = (EditText)findViewById(R.id.ageValue);
         AgeValue.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             int progressChanged = 0;
 
-            TextView ageValue = (TextView)findViewById(R.id.ageValue);
-
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser){
                 progressChanged = progress;
-                ageValue.setText(progressChanged + 20 + "");
+                ageValueET.setText(progressChanged + 20 + "");
             }
 
             public void onStartTrackingTouch(SeekBar seekBar) {
@@ -195,11 +190,29 @@ public class BMIActivity extends Activity {
             }
 
             public void onStopTrackingTouch(SeekBar seekBar) {
-                Toast.makeText(BMIActivity.this,"seek bar progress:"+progressChanged,
-                        Toast.LENGTH_SHORT).show();
+                //Toast.makeText(BMIActivity.this,"seek bar progress:"+progressChanged,Toast.LENGTH_SHORT).show();
             }
+
         });
 
+        ageValueET.addTextChangedListener(new TextWatcher(){
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+                 int tempProgress = Integer.getInteger(charSequence+"");
+                 Toast.makeText(getApplicationContext(),""+tempProgress,Toast.LENGTH_LONG).show();
+                //AgeValue.setProgress(45);
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
 
 
 
@@ -280,13 +293,10 @@ public class BMIActivity extends Activity {
 						WeightInKgs = weight;
 					}
 
-					Toast.makeText(
-							getApplicationContext(),
-							"wt in kg " + WeightInKgs + " " + "ht in mts "
-									+ heightInMts, Toast.LENGTH_LONG).show();
+					//Toast.makeText(getApplicationContext(),"wt in kg " + WeightInKgs + " " + "ht in mts "+ heightInMts, Toast.LENGTH_LONG).show();
 
 					BMIIndex = ((WeightInKgs) / (heightInMts * heightInMts));
-					Toast.makeText(getApplicationContext(), BMIIndex + " ",Toast.LENGTH_LONG).show();
+					//Toast.makeText(getApplicationContext(), BMIIndex + " ",Toast.LENGTH_LONG).show();
 
 					if (isFemaleActive)
 						gender = 1;
@@ -309,8 +319,7 @@ public class BMIActivity extends Activity {
 
                     resultCategory = determineCategory(BMIIndex);
 
-                    Toast.makeText(getApplicationContext(), resultCategory +"",
-                            Toast.LENGTH_LONG).show();
+                    //Toast.makeText(getApplicationContext(), resultCategory +"",Toast.LENGTH_LONG).show();
 
                     View BMIResultTextLayout = dialog
                             .findViewById(R.id.BMIResultTextLayout);
@@ -365,9 +374,7 @@ public class BMIActivity extends Activity {
 
     protected void checkon() {
 		// if(isFemaleActive)
-		Toast.makeText(getApplicationContext(),
-				"female " + isFemaleActive + " male " + isMaleActive,
-				Toast.LENGTH_LONG).show();
+		//Toast.makeText(getApplicationContext(),"female " + isFemaleActive + " male " + isMaleActive,Toast.LENGTH_LONG).show();
 		// if(isMaleActive)
 		// Toast.makeText(getApplicationContext(), "Male " + isMaleActive +
 		// " female "+isFemaleActive, Toast.LENGTH_LONG).show();
@@ -400,7 +407,7 @@ public class BMIActivity extends Activity {
 			
 
 		case R.id.menu_rateApp:
-			Toast.makeText(this, "Rate your App", Toast.LENGTH_SHORT).show();
+			Toast.makeText(this, "Rate this App", Toast.LENGTH_SHORT).show();
 			return true;
 
 		case R.id.menu_exit:
@@ -452,8 +459,9 @@ public class BMIActivity extends Activity {
 	public void initShareIntent() {
         Intent sendIntent = new Intent();
         sendIntent.setAction(Intent.ACTION_SEND);
-        sendIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Subject Here");
-        sendIntent.putExtra(android.content.Intent.EXTRA_TEXT, "Hi checkout this cool app");
+        sendIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Sphinx BMI Application");
+        sendIntent.putExtra(android.content.Intent.EXTRA_TEXT, "\nHey,\n\n I just downloaded Sphinx BMI Application for my Android. It's an insanely awesome app to know your BMI." +
+                "Download it from http://www.trnkarthik.com/project.php?id=5.Because you being healthy is important to me!\n\n Take Care");
         sendIntent.setType("text/plain");
         startActivity(sendIntent);
 	}
@@ -469,8 +477,9 @@ public class BMIActivity extends Activity {
             for (ResolveInfo info : resInfo) {
                 if (info.activityInfo.packageName.toLowerCase().contains(type) ||
                         info.activityInfo.name.toLowerCase().contains(type) ) {
-                  //  share.putExtra(Intent.EXTRA_SUBJECT,  "subject");
-                    share.putExtra(Intent.EXTRA_TEXT,     "http://www.trnkarthik.com");
+                    share.putExtra(android.content.Intent.EXTRA_SUBJECT, "Sphinx BMI Application");
+                    share.putExtra(android.content.Intent.EXTRA_TEXT, "\nHey,\n\n I just downloaded Sphinx BMI Application for my Android. It's an insanely awesome app to know your BMI." +
+                            "Download it from http://www.trnkarthik.com/project.php?id=5.Because you being healthy is important to me!\n\n Take Care");
                     //share.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(new File(myPath)) ); // Optional, just if you wanna share an image.
                     share.setPackage(info.activityInfo.packageName);
                     found = true;
@@ -490,18 +499,9 @@ public class BMIActivity extends Activity {
         dialog.setContentView(R.layout.activity_about_us);
         dialog.setCanceledOnTouchOutside(true);
         dialog.setTitle("About US");
-
-/*
-        View BMIResultLayout = dialog
-                .findViewById(R.id.BMIResultLayout);
-        TextView BMIResultTV = (TextView) BMIResultLayout
-                .findViewById(R.id.BMIResultTextView);
-        BMIResultTV.setText(" " + BMIIndex);
-        BMIResultTV.setTextColor(Color.BLACK);
-*/
-
         dialog.show();
     }
-	
-	
+
+
+
 }

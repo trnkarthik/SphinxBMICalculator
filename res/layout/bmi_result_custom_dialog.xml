@@ -55,6 +55,20 @@
 
     </RelativeLayout>
 
+    <Button
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:text="@string/ShareApplication"
+            android:id="@+id/shareBigButton"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="21dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/custom_button"
+            android:textStyle="bold"
+            android:clickable="false"
+            android:longClickable="false"
+            android:textSize="16sp"
+            />
 
-
-    </RelativeLayout>
+</RelativeLayout>

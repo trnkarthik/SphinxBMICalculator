@@ -17,14 +17,14 @@
     <item
             android:id="@+id/menu_about_us"
             android:orderInCategory="100"
-            android:showAsAction="always"
+            android:showAsAction="ifRoom"
             android:icon="@drawable/action_about"
             android:title="@string/menu_aboutus"/>
 
     <item
         android:id="@+id/menu_exit"
         android:orderInCategory="100"
-        android:showAsAction="always"
+        android:showAsAction="ifRoom"
         android:icon="@drawable/exit_icon"
         android:title="@string/menu_exit"/>
 
