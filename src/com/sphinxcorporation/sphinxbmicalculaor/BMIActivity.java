@@ -195,25 +195,18 @@ public class BMIActivity extends Activity {
 
         });
 
-        ageValueET.addTextChangedListener(new TextWatcher(){
+        ageValueET.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-                 int tempProgress = Integer.getInteger(charSequence+"");
-                 Toast.makeText(getApplicationContext(),""+tempProgress,Toast.LENGTH_LONG).show();
-                //AgeValue.setProgress(45);
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
+            public void onFocusChange(View view, boolean b) {
+                //Toast.makeText(getApplicationContext(),""+ageValueET.getText(),Toast.LENGTH_LONG).show();
+                Integer tempInt = Integer.parseInt(ageValueET.getText().toString());
+                AgeValue.setProgress(tempInt-20);
+                if(tempInt > 120){
+                    Toast.makeText(getApplicationContext(),"Please tell me you are kiddinbg me!",Toast.LENGTH_LONG).show();
+                }
 
             }
         });
-
 
 
 
@@ -338,8 +331,6 @@ public class BMIActivity extends Activity {
 
 
         }); // Anonymous class ends here
-
-
 
         //click here for more about BKI link
 
