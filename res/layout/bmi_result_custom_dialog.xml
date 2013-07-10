@@ -5,7 +5,7 @@
     android:background="@drawable/background"
     android:padding="10dp"
     tools:context=".BMIActivity"
-        >
+    android:id="@+id/BMIResultFullLayout">
 
     <RelativeLayout
         android:id="@+id/BMIResultLayout"
@@ -26,7 +26,7 @@
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true"
-            android:textSize="32dp"
+            android:textSize="30dp"
             android:textColor="#662a25"/>
         
     </RelativeLayout>
@@ -35,7 +35,7 @@
             android:id="@+id/BMIResultTextLayout"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="10dp"
             android:background="@drawable/rounded_corners_white"
             android:layout_below="@+id/BMIResultLayout"
             android:layout_centerHorizontal="true">
@@ -58,7 +58,7 @@
     <Button
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:text="@string/ShareApplication"
+            android:text="@string/ShareBMI"
             android:id="@+id/shareBigButton"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
@@ -70,5 +70,15 @@
             android:longClickable="false"
             android:textSize="16sp"
             />
+
+    <ImageView
+            android:layout_width="65dp"
+            android:layout_height="140dp"
+            android:contentDescription="@string/blankDesc"
+            android:id="@+id/bmiImage"
+            android:background="@drawable/m3"
+            android:layout_above="@+id/shareBigButton"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="25dp"/>
 
 </RelativeLayout>

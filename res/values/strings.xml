@@ -33,18 +33,19 @@
     <string name="title_activity_bmiresult">BMIResult</string>
     <string name="BMIResultTitle">Your BMI is : </string>
     <string name="title_activity_splash_logo">SplashLogoActivity</string>
-    <string name="sphinx">Sphinx</string>
+    <string name="sphinx_about_us">\nThis application was developed by Sphinx development team.\nPlease visit <a href="http://www.bmi.trnkarthik.com">http://www.bmi.trnkarthik.com</a> to know more.</string>
     <string name="corp">Corporation</string>
-    <string name="sphinxTagLine">Where innovation is inevitable</string>
+    <string name="sphinxTagLine">Your fitness tracker.</string>
     <string name="menu_settings">Settings</string>
     <string name="title_activity_about_us">AboutUs</string>
     <string name="Name1">name1</string>
     <string name="name2">Name 2</string>
     <string name="Back">Back</string>
-    <string name="applications">Applications</string>
+    <string name="applications"> Sphinx Applications</string>
     <string name="knowMoreAboutBMI"><u>Click here to know more about BMI</u>.</string>
     <string name="app_name">BMI Calculator</string><string name="tempString">Temp String</string>
     <string name="selectAge">Select Age</string><string name="defaultAge">25</string>
     <string name="ShareApplication">Share Application</string>
+    <string name="ShareBMI">Share This Result.</string>
 
 </resources>

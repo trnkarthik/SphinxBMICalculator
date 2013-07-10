@@ -4,10 +4,14 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
 import android.content.pm.ResolveInfo;
+import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
+import android.os.Environment;
+import android.text.Html;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -25,6 +29,10 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.List;
 
 public class BMIActivity extends Activity {
@@ -47,6 +55,7 @@ public class BMIActivity extends Activity {
 	public ImageView femaleIcon;
 	public boolean isMaleActive = false;
 	public boolean isFemaleActive = false;
+    public int gender = 0;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -273,7 +282,6 @@ public class BMIActivity extends Activity {
 					errorMsg = "Please Select a  Gender";
 				}
 
-				int gender = 0;
 				if (!errorFlag) {
 
 					Spinner weightSpinner = (Spinner) weightLayout
@@ -319,7 +327,24 @@ public class BMIActivity extends Activity {
 
                     TextView BMIResultComment = (TextView) BMIResultTextLayout
                             .findViewById(R.id.BMIResultComment);
-                    BMIResultComment.setText("Your BMI Suggests that you are "+ resultCategory);
+                    BMIResultComment.setText(Html.fromHtml("Your BMI Suggests that you are <b><font color='maroon'>" + resultCategory + ".</font></b> <br />" + getSuggestion(BMIIndex)));
+
+                    View BMIResultFullLayout = dialog
+                            .findViewById(R.id.BMIResultFullLayout);
+
+                    Button shareBigButton = (Button)BMIResultFullLayout.findViewById(R.id.shareBigButton);
+                    shareBigButton.setOnClickListener(new OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            initShareResultIntent(BMIIndex,getBMIImage(gender,BMIIndex));
+                        }
+                    });
+
+                    ImageView BMIImage = (ImageView)BMIResultFullLayout.findViewById(R.id.bmiImage);
+
+                    //setting image to result
+                    BMIImage.setImageDrawable(getBMIImage(gender,BMIIndex));
+
 
                     dialog.show();
 				} else {
@@ -352,13 +377,29 @@ public class BMIActivity extends Activity {
         if(BMI< 18.5)
             return("Underweight");
         else if(BMI >= 18.5 && BMI <= 24.9)
-            return("Normal");
+            return("Perfect!");
         else if(BMI >= 25 && BMI <= 29.9)
             return("OverWeight");
         else if(BMI >= 30 && BMI <= 39.9)
-            return("Obesity");
+            return("Obese");
         else if(BMI >= 40 )
-            return("Extreme Obesity");
+            return("Extreme Obese");
+        return("Normal");
+
+    }
+
+    public String getSuggestion(Float BMI){
+
+        if(BMI< 18.5)
+            return("Time to get some really good diet.");
+        else if(BMI >= 18.5 && BMI <= 24.9)
+            return("Great job.");
+        else if(BMI >= 25 && BMI <= 29.9)
+            return("Time to hit the gym.");
+        else if(BMI >= 30 && BMI <= 39.9)
+            return("No worries.Organised diet and physical exercise can get you back on track.");
+        else if(BMI >= 40 )
+            return("Time to change your eating habits.");
         return("Normal");
 
     }
@@ -398,7 +439,8 @@ public class BMIActivity extends Activity {
 			
 
 		case R.id.menu_rateApp:
-			Toast.makeText(this, "Rate this App", Toast.LENGTH_SHORT).show();
+			//Toast.makeText(this, "Rate this App", Toast.LENGTH_SHORT).show();
+            rateApp();
 			return true;
 
 		case R.id.menu_exit:
@@ -470,7 +512,7 @@ public class BMIActivity extends Activity {
                         info.activityInfo.name.toLowerCase().contains(type) ) {
                     share.putExtra(android.content.Intent.EXTRA_SUBJECT, "Sphinx BMI Application");
                     share.putExtra(android.content.Intent.EXTRA_TEXT, "\nHey,\n\n I just downloaded Sphinx BMI Application for my Android. It's an insanely awesome app to know your BMI." +
-                            "Download it from http://www.trnkarthik.com/project.php?id=5.Because you being healthy is important to me!\n\n Take Care");
+                            "Download it from http://www.bmi.trnkarthik.com.Because you being healthy is important to me!\n\n Take Care");
                     //share.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(new File(myPath)) ); // Optional, just if you wanna share an image.
                     share.setPackage(info.activityInfo.packageName);
                     found = true;
@@ -483,7 +525,81 @@ public class BMIActivity extends Activity {
             startActivity(Intent.createChooser(share, "Select"));
         }
     }
-	
+
+    public void initShareResultIntent(Float BMIIndex,Drawable image) {
+        Intent sendIntent = new Intent();
+        sendIntent.setAction(Intent.ACTION_SEND);
+        sendIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "My BMI is "+String.format("%.2f", BMIIndex));
+        sendIntent.putExtra(android.content.Intent.EXTRA_TEXT, "My BMI of "+ String.format("%.2f", BMIIndex) +" shows that I am "+determineCategory(BMIIndex)+
+                ".\nWhat's yours?\nWanna know...then get Sphinx BMI App for Android from http://bmi.trnkarthik.com.Waiting for your reply.\n\nBye.");
+        sendIntent.setType("text/plain");
+        startActivity(sendIntent);
+    }
+
+
+    public void rateApp(){
+        final Uri uri = Uri.parse("market://details?id=" + getApplicationContext().getPackageName());
+        final Intent rateAppIntent = new Intent(Intent.ACTION_VIEW, uri);
+
+        if (getPackageManager().queryIntentActivities(rateAppIntent, 0).size() > 0)
+        {
+            startActivity(rateAppIntent);
+        }
+        else
+        {
+            Toast.makeText(this, "Some Error!Please try again later.Thanks", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public Drawable getBMIImage(int gender,Float BMIIndex){
+            Float x = BMIIndex;
+           Toast.makeText(getApplicationContext(),gender + ":" + BMIIndex ,Toast.LENGTH_LONG).show();
+            int k = 1;
+            String res = "";
+
+            //determining the bmi part
+            if(x<=17){
+                k=1;
+            }
+            else if(x>17 && x<=20){
+                k=2;
+            }
+            else if(x>20 && x<=23){
+                k=3;
+            }
+            else if(x>23 && x<=25){
+                k=4;
+            }
+            else if(x>25 && x<=27){
+                k=5;
+            }
+            else if(x>27 && x<=31){
+                k=6;
+            }
+            else if(x>31 && x<=35){
+                k=7;
+            }
+            else if(x>35 && x<=38){
+                k=8;
+            }
+            else if(x>=39){
+                k=9;
+            }
+
+        //determining the gender part
+        if(gender == 1){
+            res = "f"+k;
+        }
+        else if(gender == 2){
+            res = "m"+k;
+        }
+
+        int resu = getResources().getIdentifier(res,"drawable", getPackageName());
+        Drawable drawable = getResources().getDrawable(resu);
+        return(drawable);
+    }
+
+
 	public void createDialog()
     {
         Dialog dialog = new Dialog(BMIActivity.this);

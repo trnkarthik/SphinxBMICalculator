@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/sphinxLogoScreenTitle"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="55dp"
+        android:layout_marginTop="95dp"
         android:text="@string/sphinxTagLine"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#ffffff" />
@@ -25,10 +25,10 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="99dp"
         android:fontFamily="Sans Serif"
-        android:text="@string/sphinx"
+        android:text="@string/app_name"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="#ffffff"
-        android:textSize="50sp" />
+        android:textSize="35sp" />
 
     <TextView
         android:id="@+id/sphinxLogoScreenApp"
@@ -36,7 +36,7 @@
         android:layout_height="wrap_content"
         android:layout_alignRight="@+id/sphinxLogoScreenTitle"
         android:layout_below="@+id/sphinxLogoScreenTitle"
-        android:layout_marginTop="-10dp"
+        android:layout_marginTop="0dp"
         android:text="@string/applications"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#ffffff"
